@@ -1,0 +1,47 @@
+services:
+  wordpress:
+    image: wordpress:latest
+    container_name: landing-wordpress
+    restart: unless-stopped
+    environment:
+      WORDPRESS_DB_HOST: landing-db:3306
+      WORDPRESS_DB_NAME: landing_wp
+      WORDPRESS_DB_USER: wp_user
+      WORDPRESS_DB_PASSWORD: wp_secure_pass_2026
+      WORDPRESS_TABLE_PREFIX: wp_
+    volumes:
+      - wordpress_data:/var/www/html
+      - ./circular-ai-wp-theme:/var/www/html/wp-content/themes/circular-ai-wp-theme
+    networks:
+      - traefik-public
+      - landing-internal
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.landing-wordpress.rule=Host(`landing.dev.interwwweb.com`)"
+      - "traefik.http.routers.landing-wordpress.entrypoints=websecure"
+      - "traefik.http.routers.landing-wordpress.tls.certresolver=letsencrypt"
+      - "traefik.http.services.landing-wordpress.loadbalancer.server.port=80"
+
+  landing-db:
+    image: mariadb:10.11
+    container_name: landing-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root_secure_pass_2026
+      MYSQL_DATABASE: landing_wp
+      MYSQL_USER: wp_user
+      MYSQL_PASSWORD: wp_secure_pass_2026
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - landing-internal
+
+volumes:
+  wordpress_data:
+  db_data:
+
+networks:
+  traefik-public:
+    external: true
+  landing-internal:
+    driver: bridge

@@ -1,0 +1,352 @@
+/*
+Theme Name: Circular AI Landing
+Theme URI: https://landing.dev.interwwweb.com
+Author: OpenClaw
+Author URI: https://github.com/circularmanager2026-tech
+Description: Landing page theme para Circular AI - Chatbots Inteligentes. Diseño split hero con campos personalizables via ACF.
+Version: 1.0.0
+License: GPL v2
+Text Domain: circular-ai
+*/
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Header */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem;
+    background: #fff;
+    position: relative;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #0f0f23;
+    text-decoration: none;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    background: #0f0f23;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.logo-icon::before,
+.logo-icon::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+
+.logo-icon::before {
+    left: 5px;
+}
+
+.logo-icon::after {
+    right: 5px;
+    background: #fff;
+}
+
+.main-nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #4a4a5a;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.main-nav a:hover {
+    color: #0f0f23;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.login-link {
+    text-decoration: none;
+    color: #4a4a5a;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background: #0f0f23;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(15, 15, 35, 0.3);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    min-height: calc(100vh - 80px);
+    position: relative;
+}
+
+.hero-left {
+    flex: 1;
+    background: #E8D5F7;
+    padding: 5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 520px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #0f0f23;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: #4a4a5a;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 420px;
+}
+
+.btn-hero {
+    background: #0f0f23;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 6px 6px 0 #7B68EE;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-hero:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 #7B68EE;
+}
+
+.hero-right {
+    flex: 1;
+    background: #F5D76E;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.illustration {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px;
+    height: 85%;
+}
+
+.illustration svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Floating Notifications */
+.notification {
+    position: absolute;
+    background: #FFFEF0;
+    border: 2px solid #0f0f23;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+    font-size: 0.8rem;
+    z-index: 10;
+    animation: float 4s ease-in-out infinite;
+}
+
+.notification:nth-child(2) { animation-delay: 0.5s; }
+.notification:nth-child(3) { animation-delay: 1s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666;
+}
+
+.notification-dot {
+    width: 6px;
+    height: 6px;
+    background: #e74c3c;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.notification-title {
+    font-weight: 600;
+    color: #0f0f23;
+    margin-bottom: 0.15rem;
+}
+
+.notification-count {
+    font-size: 0.7rem;
+    color: #888;
+}
+
+.notif-1 { top: 15%; left: 10%; width: 180px; }
+.notif-2 { top: 25%; right: 8%; width: 160px; animation-delay: 0.7s; }
+.notif-3 { top: 8%; right: 25%; width: 170px; animation-delay: 1.4s; }
+
+/* Marquee */
+.marquee {
+    background: #fff;
+    border-top: 2px solid #0f0f23;
+    border-bottom: 2px solid #0f0f23;
+    padding: 1rem 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee-content {
+    display: flex;
+    animation: marquee 20s linear infinite;
+    white-space: nowrap;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 2rem;
+    font-weight: 600;
+    color: #0f0f23;
+    font-size: 0.95rem;
+}
+
+.marquee-icon {
+    width: 24px;
+    height: 24px;
+    background: #0f0f23;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.75rem;
+}
+
+/* Admin Bar Fix */
+body.admin-bar .site-header {
+    top: 32px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+    }
+    
+    .hero-left, .hero-right {
+        min-height: 50vh;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .site-header {
+        padding: 1rem 1.5rem;
+    }
+    
+    .main-nav {
+        display: none;
+    }
+}
+
+/* WordPress Alignment */
+.alignleft { float: left; margin-right: 1rem; }
+.alignright { float: right; margin-left: 1rem; }
+.aligncenter { display: block; margin: 0 auto; }
