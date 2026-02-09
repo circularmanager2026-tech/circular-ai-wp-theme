@@ -1,0 +1,186 @@
+[
+    {
+        "key": "group_header",
+        "title": "Header Settings",
+        "fields": [
+            {
+                "key": "field_logo_text",
+                "label": "Logo Text",
+                "name": "site_logo_text",
+                "type": "text",
+                "default_value": "Circular AI"
+            },
+            {
+                "key": "field_login_text",
+                "label": "Login Text",
+                "name": "login_text",
+                "type": "text",
+                "default_value": "Iniciar sesión"
+            },
+            {
+                "key": "field_login_url",
+                "label": "Login URL",
+                "name": "login_url",
+                "type": "url",
+                "default_value": "#"
+            },
+            {
+                "key": "field_cta_header_text",
+                "label": "CTA Header Text",
+                "name": "cta_header_text",
+                "type": "text",
+                "default_value": "Comenzar gratis →"
+            },
+            {
+                "key": "field_cta_header_url",
+                "label": "CTA Header URL",
+                "name": "cta_header_url",
+                "type": "url",
+                "default_value": "#"
+            },
+            {
+                "key": "field_nav_items",
+                "label": "Navigation Items",
+                "name": "header_navigation",
+                "type": "repeater",
+                "sub_fields": [
+                    {
+                        "key": "field_nav_label",
+                        "label": "Label",
+                        "name": "label",
+                        "type": "text"
+                    },
+                    {
+                        "key": "field_nav_link",
+                        "label": "Link",
+                        "name": "link",
+                        "type": "url"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "circular-ai-settings"
+                }
+            ]
+        ]
+    },
+    {
+        "key": "group_hero",
+        "title": "Hero Settings",
+        "fields": [
+            {
+                "key": "field_hero_title",
+                "label": "Hero Title",
+                "name": "hero_title",
+                "type": "textarea",
+                "rows": 2,
+                "default_value": "Crea Chatbots Inteligentes Sin Escribir Código"
+            },
+            {
+                "key": "field_hero_subtitle",
+                "label": "Hero Subtitle",
+                "name": "hero_subtitle",
+                "type": "textarea",
+                "rows": 3,
+                "default_value": "Circular AI es tu plataforma para diseñar, entrenar y desplegar chatbots conversacionales que transforman la experiencia de tus clientes."
+            },
+            {
+                "key": "field_hero_cta_text",
+                "label": "CTA Text",
+                "name": "hero_cta_text",
+                "type": "text",
+                "default_value": "Probar gratis →"
+            },
+            {
+                "key": "field_hero_cta_url",
+                "label": "CTA URL",
+                "name": "hero_cta_url",
+                "type": "url",
+                "default_value": "#"
+            },
+            {
+                "key": "field_hero_notifications",
+                "label": "Floating Notifications",
+                "name": "hero_notifications",
+                "type": "repeater",
+                "sub_fields": [
+                    {
+                        "key": "field_notif_label",
+                        "label": "Label",
+                        "name": "label",
+                        "type": "text"
+                    },
+                    {
+                        "key": "field_notif_time",
+                        "label": "Time",
+                        "name": "time",
+                        "type": "text",
+                        "default_value": "Ahora"
+                    },
+                    {
+                        "key": "field_notif_title",
+                        "label": "Title",
+                        "name": "title",
+                        "type": "text"
+                    },
+                    {
+                        "key": "field_notif_count",
+                        "label": "Count Text",
+                        "name": "count",
+                        "type": "text"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "circular-ai-settings"
+                }
+            ]
+        ]
+    },
+    {
+        "key": "group_marquee",
+        "title": "Marquee Settings",
+        "fields": [
+            {
+                "key": "field_marquee_items",
+                "label": "Marquee Items",
+                "name": "marquee_items",
+                "type": "repeater",
+                "sub_fields": [
+                    {
+                        "key": "field_marquee_icon",
+                        "label": "Icon",
+                        "name": "icon",
+                        "type": "text",
+                        "default_value": "✦"
+                    },
+                    {
+                        "key": "field_marquee_text",
+                        "label": "Text",
+                        "name": "text",
+                        "type": "text"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "circular-ai-settings"
+                }
+            ]
+        ]
+    }
+]
